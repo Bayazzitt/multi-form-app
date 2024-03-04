@@ -125,7 +125,7 @@ const AllergyForm = () => {
         <Button className='customMargin' type="submit" size="small" variant="Contained">{labels.tr.evaluate}</Button>
       </form>
 
-      <div className='customMargin'>{results}</div>
+      <div className='customMargin' style={{ fontWeight: 'bold' }}>{results}</div>
     </div>
   );
 };

@@ -1,38 +1,20 @@
 import React, { useState } from 'react';
 import './forms.css';
+import Button from '@mui/material/Button';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
 
 const WaistHipRatioCalculator = () => {
   const [waist, setWaist] = useState('');
   const [hip, setHip] = useState('');
   const [gender, setGender] = useState('');
   const [result, setResult] = useState('');
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('tr'); // Varsayılan dil olarak Türkçe ayarlandı
 
   const whrLabels = {
-    en: {
-      waist: 'Waist circumference (in cm):',
-      hip: 'Hip circumference (in cm):',
-      gender: 'Select your gender:',
-      calculate: 'Calculate',
-      result: 'Your Waist-Hip Ratio is:',
-      male: 'Male',
-      female: 'Female',
-      normal: 'Normal weight',
-      overweight: 'Overweight',
-      obesity: 'Obesity',
-    },
-    de: {
-      waist: 'Bauchumfang (in cm):',
-      hip: 'Hüftumfang (in cm):',
-      gender: 'Wählen Sie Ihr Geschlecht:',
-      calculate: 'Berechnen',
-      result: 'Ihr Taille-Hüfte-Verhältnis beträgt:',
-      male: 'männlich',
-      female: 'weiblich',
-      normal: 'Normalgewicht',
-      overweight: 'Übergewicht',
-      obesity: 'Adipositas',
-    },
     tr: {
       waist: 'Bel çevresi (cm cinsinden):',
       hip: 'Kalça çevresi (cm cinsinden):',
@@ -52,7 +34,7 @@ const WaistHipRatioCalculator = () => {
     const hipValue = parseFloat(hip);
 
     if (!waistValue || !hipValue || !gender) {
-      alert('Please enter your details.');
+      alert('Lütfen detaylarınızı girin.');
       return;
     }
 
@@ -74,19 +56,13 @@ const WaistHipRatioCalculator = () => {
 
   return (
     <div>
-      <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-        <option value="en">English</option>
-        <option value="de">Deutsch</option>
-        <option value="tr">Türkçe</option>
-      </select>
-
       <div>
         <label>{whrLabels[language].waist}</label>
         <input
           type="text"
           value={waist}
           onChange={(e) => setWaist(e.target.value)}
-        /> cm
+        /> 
       </div>
 
       <div>
@@ -95,7 +71,7 @@ const WaistHipRatioCalculator = () => {
           type="text"
           value={hip}
           onChange={(e) => setHip(e.target.value)}
-        /> cm
+        /> 
       </div>
 
       <div>

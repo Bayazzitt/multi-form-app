@@ -34,7 +34,7 @@ const Form1 = () => {
             alert(texts["geschlechtWarnung"]);
             return;
         }
-
+    
         let result = 0;
         if (gender === "m") {
             result = 66.47 + 13.7 * weight + 5 * height - 6.5 * age;
@@ -42,8 +42,9 @@ const Form1 = () => {
             result = 665 + 9.6 * weight + 1.8 * height - 4.7 * age;
         }
         
-        setCaloricNeed(result.toFixed(2));
+        setCaloricNeed(`${texts.kalorienbedarf} ${result.toFixed(2)}`);
     };
+    
 
     return (
         <div>
@@ -80,7 +81,6 @@ const Form1 = () => {
                         </td>
                     </tr>
                     <tr>
-                        <td>{texts.kalorienbedarf}</td>
                         <td style={{ fontWeight: 'bold' }}>{caloricNeed}</td>
                     </tr>
                     <tr>
