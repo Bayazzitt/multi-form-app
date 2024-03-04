@@ -10,7 +10,7 @@ input {
 
 
 .customMargin {
-    margin-top: 10px !important;
+    margin-top: 15px !important;
 }
 
 
@@ -29,3 +29,7 @@ input {
     animation: fadeIn 1s ease-out;
   }
   
+
+  .css-1c35hjw-MuiPaper-root-MuiAccordion-root::before {
+    height: 0px !important;
+  }

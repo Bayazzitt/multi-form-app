@@ -6,7 +6,6 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-import { Fade } from '@mui/material';
 
 const Form1 = () => {
     const [weight, setWeight] = useState('');
@@ -30,8 +29,6 @@ const Form1 = () => {
         einheitJahre: "Yaş",
     };
 
-    const [animate, setAnimate] = useState(false);
-
     const calculateCaloricNeed = () => {
         if (!gender) {
             alert(texts["geschlechtWarnung"]);
@@ -46,8 +43,6 @@ const Form1 = () => {
         }
         
         setCaloricNeed(result.toFixed(2));
-        setAnimate(false);
-        setTimeout(() => setAnimate(true), 100);
     };
 
     return (
@@ -86,9 +81,7 @@ const Form1 = () => {
                     </tr>
                     <tr>
                         <td>{texts.kalorienbedarf}</td>
-                        <Fade  in={animate} timeout={500}>
-                            <span>{caloricNeed}</span>
-                        </Fade>
+                        <td style={{ fontWeight: 'bold' }}>{caloricNeed}</td>
                     </tr>
                     <tr>
                         <td colSpan="2" style={{ textAlign: 'left' }}>
@@ -102,4 +95,3 @@ const Form1 = () => {
 };
 
 export default Form1;
-

@@ -6,7 +6,7 @@ import FormLabel from "@mui/material/FormLabel";
 import Button from '@mui/material/Button';
 import './forms.css';
 const AllergyForm = () => {
-  const [language] = useState("tr"); // Dil sabit olarak 'tr' olarak ayarlandı
+  const [language] = useState("tr"); 
   const [results, setResults] = useState("");
   const [responses, setResponses] = useState({});
 

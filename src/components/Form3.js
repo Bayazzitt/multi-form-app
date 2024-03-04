@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import './forms.css'; 
 
 const Form3 = () => {
-  // Dil seçeneği varsayılan olarak sadece Türkçe olarak ayarlandı
+  
   const [language, setLanguage] = useState('tr');
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
@@ -63,11 +63,11 @@ const Form3 = () => {
         <div>
           <TextField className='customMargin' label={bmiLabels[language].height} size="small" variant="outlined" value={height}  id="outlined-basic" type="text" onChange={(e) => setHeight(e.target.value)} />
         </div>
-        <div className='customMargin'>
-          {bmiLabels[language].yourBmi} {bmiResult}
-        </div>
         <div style={{ textAlign: 'left' }}>
             <Button className='customMargin' size="small" variant="Contained" onClick={handleCalculateClick}>{bmiLabels[language].calculate}</Button>
+        </div>
+        <div style={{ fontWeight: 'bold' }} className='customMargin'>
+          {bmiResult}
         </div>
       </div>
     </div>

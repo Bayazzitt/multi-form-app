@@ -32,7 +32,7 @@ const Form4 = () => {
         "Yüksek performanslı, profesyonel sporcular",
       ],
       calculate: "Hesapla",
-      optimalPulse: "Optimal antrenman nabzınız yaklaşık olarak:",
+      optimalPulse: "Optimal antrenman nabzınız yaklaşık:",
     },
   };
 
@@ -50,7 +50,7 @@ const Form4 = () => {
     const { alter, ruhepuls, sportlich } = formData;
 
     if (!isNumber(alter) || !isNumber(ruhepuls) || !isNumber(sportlich)) {
-      alert("Bitte überprüfen Sie die eingegebenen Werte.");
+      alert("Lütfen Girdiğiniz Değerleri Kontrol Edin.");
       return;
     }
 
@@ -86,10 +86,12 @@ const Form4 = () => {
               ))}
             </RadioGroup>
           </FormControl>
-          <div>
-            {texts.optimalPulse} {formData.trainingspulsergebnis}<br />&nbsp;
-          </div>
           <Button type="submit" variant="Contained" onClick={doSomething}>{texts.calculate}</Button>
+          {formData.trainingspulsergebnis && (
+            <div style={{ fontWeight: 'bold' }}>
+              {texts.optimalPulse} {formData.trainingspulsergebnis}<br />&nbsp;
+            </div>
+          )}
         </Stack>
       </form>
     </div>
