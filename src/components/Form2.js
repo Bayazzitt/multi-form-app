@@ -5,6 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Button from '@mui/material/Button';
 import './forms.css';
+
 const AllergyForm = () => {
   const [language] = useState("tr"); 
   const [results, setResults] = useState("");
@@ -14,35 +15,14 @@ const AllergyForm = () => {
     tr: [
       { id: "cradleCap", text: "Bebekken süt kabuğu (kepçe kabuğu) oldu mu?" },
       { id: "eczema", text: "Çocukken egzama geçirdiniz mi?" },
-      {
-        id: "familyHistory",
-        text: "Ailenizde alerji, astım, egzama veya saman nezlesi var mı?",
-      },
-      {
-        id: "redEyes",
-        text: "Sık sık kızarmış, kaşıntılı veya yaşaran gözlerden muzdarip misiniz?",
-      },
+      { id: "familyHistory", text: "Ailenizde alerji, astım, egzama veya saman nezlesi var mı?" },
+      { id: "redEyes", text: "Sık sık kızarmış, kaşıntılı veya yaşaran gözlerden muzdarip misiniz?" },
       { id: "sneezing", text: "Sık sık hapşırıyor musunuz?" },
-      {
-        id: "runnyNose",
-        text: "Sık sık tıkanmış burun ve berrak, sıvı akıntıdan muzdarip misiniz?",
-      },
-      {
-        id: "seasonal",
-        text: "Belirli mevsimlerde semptomlarınız kötüleşiyor mu?",
-      },
-      {
-        id: "outdoors",
-        text: "Dışarı çıktığınızda semptomlarınız kötüleşiyor mu?",
-      },
-      {
-        id: "tiredness",
-        text: "Semptomlarınız olduğunda özellikle yorgun hissediyor musunuz?",
-      },
-      {
-        id: "improvement",
-        text: "Dağlara veya denize gittiğinizde semptomlarınızda iyileşme oluyor mu?",
-      },
+      { id: "runnyNose", text: "Sık sık tıkanmış burun ve berrak, sıvı akıntıdan muzdarip misiniz?" },
+      { id: "seasonal", text: "Belirli mevsimlerde semptomlarınız kötüleşiyor mu?" },
+      { id: "outdoors", text: "Dışarı çıktığınızda semptomlarınız kötüleşiyor mu?" },
+      { id: "tiredness", text: "Semptomlarınız olduğunda özellikle yorgun hissediyor musunuz?" },
+      { id: "improvement", text: "Dağlara veya denize gittiğinizde semptomlarınızda iyileşme oluyor mu?" },
     ],
   };
 
@@ -52,10 +32,8 @@ const AllergyForm = () => {
       no: "Hayır",
       unknown: "Bilmiyorum",
       evaluate: "Değerlendir",
-      resultLow:
-        "Sonucunuz: Muhtemelen alerjiniz yok. Ancak, semptomlarınız devam ederse, kesin bir sonuç ve tıbbi teşhis için bir alerji uzmanına danışmalısınız.",
-      resultHigh:
-        "Sonucunuz: Muhtemelen bir alerjiniz var. Kesin bir sonuç ve tıbbi teşhis için bir alerji uzmanına görünmelisiniz. Bu test yalnızca ilk yönlendirme sağlayabilir ve bir doktor ziyaretinin yerini alamaz.",
+      resultLow: "Sonucunuz: Muhtemelen alerjiniz yok. Ancak, semptomlarınız devam ederse, kesin bir sonuç ve tıbbi teşhis için bir alerji uzmanına danışmalısınız.",
+      resultHigh: "Sonucunuz: Muhtemelen bir alerjiniz var. Kesin bir sonuç ve tıbbi teşhis için bir alerji uzmanına görünmelisiniz. Bu test yalnızca ilk yönlendirme sağlayabilir ve bir doktor ziyaretinin yerini alamaz.",
     },
   };
 
@@ -71,8 +49,13 @@ const AllergyForm = () => {
     const scores = Object.values(responses);
     const total = scores.reduce((acc, score) => acc + parseInt(score, 10), 0);
 
-    const result = total < 10 ? labels.tr.resultLow : labels.tr.resultHigh;
+    const result = total < 5 ? labels.tr.resultLow : labels.tr.resultHigh; // Toplam puan 5'ten düşükse düşük risk, değilse yüksek risk
     setResults(result);
+  };
+
+  const handleClearForm = () => {
+    setResponses({}); // Tüm yanıtları sıfırla
+    setResults(""); // Sonucu sıfırla
   };
 
   return (
@@ -121,8 +104,8 @@ const AllergyForm = () => {
           </tbody>
         </table>
 
-        
         <Button className='customMargin' type="submit" size="small" variant="Contained">{labels.tr.evaluate}</Button>
+        <Button className='customMargin' onClick={handleClearForm} size="small" variant="Contained">Temizle</Button>
       </form>
 
       <div className='customMargin' style={{ fontWeight: 'bold' }}>{results}</div>

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button';
-import './forms.css'; 
+import './forms.css';
 
 const Form3 = () => {
-  
   const [language, setLanguage] = useState('tr');
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
@@ -16,6 +15,7 @@ const Form3 = () => {
       height: "Boy (Cm)",
       yourBmi: "BMI'nız:",
       calculate: "Hesapla",
+      clear: "Temizle",
       categories: {
         severeUnderweight: "Ciddi Düşük Kilolu",
         moderateUnderweight: "Orta Düşük Kilolu",
@@ -53,18 +53,24 @@ const Form3 = () => {
     calculateBMI(weight, height);
   };
 
+  const handleClearClick = () => {
+    setWeight('');
+    setHeight('');
+    setBmiResult('');
+  };
+
   return (
     <div>
-
       <div className="form-container">
         <div>
-          <TextField label={bmiLabels[language].weight} size="small" variant="outlined" value={weight}  id="outlined-basic" type="text" onChange={(e) => setWeight(e.target.value)} />
+          <TextField label={bmiLabels[language].weight} size="small" variant="outlined" value={weight} type="text" onChange={(e) => setWeight(e.target.value)} />
         </div>
         <div>
-          <TextField className='customMargin' label={bmiLabels[language].height} size="small" variant="outlined" value={height}  id="outlined-basic" type="text" onChange={(e) => setHeight(e.target.value)} />
+          <TextField className='customMargin' label={bmiLabels[language].height} size="small" variant="outlined" value={height} type="text" onChange={(e) => setHeight(e.target.value)} />
         </div>
         <div style={{ textAlign: 'left' }}>
-            <Button className='customMargin' size="small" variant="Contained" onClick={handleCalculateClick}>{bmiLabels[language].calculate}</Button>
+          <Button className='customMargin' size="small" variant="Contained" onClick={handleCalculateClick}>{bmiLabels[language].calculate}</Button>
+          <Button className='customMargin' size="small" variant="Contained" onClick={handleClearClick}>{bmiLabels[language].clear}</Button>
         </div>
         <div style={{ fontWeight: 'bold' }} className='customMargin'>
           {bmiResult}

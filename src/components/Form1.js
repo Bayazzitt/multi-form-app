@@ -23,6 +23,7 @@ const Form1 = () => {
         weiblich: "Kadın",
         kalorienbedarf: "Günlük Kalori İhtiyacınız:",
         berechnen: "Hesapla",
+        temizle: "Temizle", // Temizle butonu için metin eklendi
         geschlechtWarnung: "Lütfen cinsiyetinizi seçin",
         einheitKg: "Ağırlık (Kg)",
         einheitCm: "Boy (Cm)",
@@ -44,7 +45,14 @@ const Form1 = () => {
         
         setCaloricNeed(`${texts.kalorienbedarf} ${result.toFixed(2)}`);
     };
-    
+
+    const clearForm = () => {
+        setWeight('');
+        setHeight('');
+        setAge('');
+        setGender('');
+        setCaloricNeed('');
+    };
 
     return (
         <div>
@@ -86,6 +94,7 @@ const Form1 = () => {
                     <tr>
                         <td colSpan="2" style={{ textAlign: 'left' }}>
                             <Button className='customMargin' size="small" variant="Contained" onClick={calculateCaloricNeed}>{texts.berechnen}</Button>
+                            <Button className='customMargin' size="small" variant="Contained" color="secondary" onClick={clearForm}>{texts.temizle}</Button>
                         </td>
                     </tr>
                 </tbody>
