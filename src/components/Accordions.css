@@ -11,3 +11,7 @@
     margin-top: 15px !important;
     border-radius: 14px !important;
   }
+
+  .css-1c35hjw-MuiPaper-root-MuiAccordion-root::before {
+    height: 0px !important;
+  }
