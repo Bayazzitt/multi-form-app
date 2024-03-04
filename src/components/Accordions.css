@@ -15,3 +15,7 @@
   .css-1c35hjw-MuiPaper-root-MuiAccordion-root::before {
     height: 0px !important;
   }
+
+  .css-1wz20g3::before {
+    height: 0px !important;
+  }
