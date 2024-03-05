@@ -23,16 +23,17 @@ const Form1 = () => {
         weiblich: "Kadın",
         kalorienbedarf: "Günlük Kalori İhtiyacınız:",
         berechnen: "Hesapla",
-        temizle: "Temizle", // Temizle butonu için metin eklendi
+        temizle: "Temizle", 
         geschlechtWarnung: "Lütfen cinsiyetinizi seçin",
         einheitKg: "Ağırlık (Kg)",
         einheitCm: "Boy (Cm)",
         einheitJahre: "Yaş",
+        bosAlanUyarisi: "Lütfen tüm alanları doldurunuz", 
     };
 
     const calculateCaloricNeed = () => {
-        if (!gender) {
-            alert(texts["geschlechtWarnung"]);
+        if (!weight || !height || !age) {
+            alert(texts["bosAlanUyarisi"]);
             return;
         }
     
@@ -60,7 +61,7 @@ const Form1 = () => {
                 <tbody>
                     <tr>
                         <td>
-                            <TextField className='customMargin' size="small" variant="outlined"  label={texts.einheitKg} id="outlined-basic" type="text" value={weight} onChange={(e) => setWeight(e.target.value)} />
+                            <TextField  size="small" variant="outlined"  label={texts.einheitKg} id="outlined-basic" type="text" value={weight} onChange={(e) => setWeight(e.target.value)} />
                         </td>
                     </tr>
                     <tr>
@@ -75,7 +76,7 @@ const Form1 = () => {
                     </tr>
                     <tr>
                         <td>
-                            <FormControl>
+                            <FormControl className='customMargin'>
                                 <RadioGroup
                                     aria-labelledby="gender-radio-group-label"
                                     name="gender"

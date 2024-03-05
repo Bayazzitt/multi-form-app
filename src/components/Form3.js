@@ -69,8 +69,8 @@ const Form3 = () => {
           <TextField className='customMargin' label={bmiLabels[language].height} size="small" variant="outlined" value={height} type="text" onChange={(e) => setHeight(e.target.value)} />
         </div>
         <div style={{ textAlign: 'left' }}>
-          <Button className='customMargin' size="small" variant="Contained" onClick={handleCalculateClick}>{bmiLabels[language].calculate}</Button>
-          <Button className='customMargin' size="small" variant="Contained" onClick={handleClearClick}>{bmiLabels[language].clear}</Button>
+          <Button  style={{ marginTop: '25px', marginRight: '10px' }}  size="small" variant="Contained" onClick={handleCalculateClick}>{bmiLabels[language].calculate}</Button>
+          <Button  style={{ marginTop: '25px', marginRight: '10px' }}  size="small" variant="Contained" onClick={handleClearClick}>{bmiLabels[language].clear}</Button>
         </div>
         <div style={{ fontWeight: 'bold' }} className='customMargin'>
           {bmiResult}

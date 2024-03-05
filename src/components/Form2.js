@@ -48,14 +48,19 @@ const AllergyForm = () => {
     e.preventDefault();
     const scores = Object.values(responses);
     const total = scores.reduce((acc, score) => acc + parseInt(score, 10), 0);
+    const responseCount = Object.keys(responses).length;
+    if (responseCount === 0) {
+      alert("Lütfen en az bir soruya yanıt veriniz.");
+      return;
+    }
 
-    const result = total < 5 ? labels.tr.resultLow : labels.tr.resultHigh; // Toplam puan 5'ten düşükse düşük risk, değilse yüksek risk
+    const result = total < 5 ? labels.tr.resultLow : labels.tr.resultHigh; 
     setResults(result);
   };
 
   const handleClearForm = () => {
-    setResponses({}); // Tüm yanıtları sıfırla
-    setResults(""); // Sonucu sıfırla
+    setResponses({}); 
+    setResults(""); 
   };
 
   return (
