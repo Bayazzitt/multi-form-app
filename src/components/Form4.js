@@ -32,6 +32,7 @@ const Form4 = () => {
         "Yüksek performanslı, profesyonel sporcular",
       ],
       calculate: "Hesapla",
+      clear: "Temizle", 
       optimalPulse: "Optimal antrenman nabzınız yaklaşık:",
     },
   };
@@ -56,6 +57,15 @@ const Form4 = () => {
 
     const ergebnis = berechnung(alter, ruhepuls, sportlich);
     setFormData({ ...formData, trainingspulsergebnis: ergebnis });
+  };
+
+  const handleReset = () => {
+    setFormData({
+      alter: '',
+      ruhepuls: '',
+      sportlich: '',
+      trainingspulsergebnis: '',
+    });
   };
 
   const berechnung = (alter, ruhepuls, sportlich) => {
@@ -87,6 +97,7 @@ const Form4 = () => {
             </RadioGroup>
           </FormControl>
           <Button type="submit" variant="Contained" onClick={doSomething}>{texts.calculate}</Button>
+          <Button variant="Contained" onClick={handleReset}>{texts.clear}</Button> {}
           {formData.trainingspulsergebnis && (
             <div style={{ fontWeight: 'bold' }}>
               {texts.optimalPulse} {formData.trainingspulsergebnis}<br />&nbsp;

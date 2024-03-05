@@ -4,7 +4,7 @@ import AccordionExpandIcon from './components/Accordions';
 function App() {
   return (
     <div className="App">
-      <h1 style={{textAlign: "center"}}>Çoklu Form Uygulaması</h1>
+      <h1 style={{textAlign: "center"}}>Çoklu Form</h1>
       <AccordionExpandIcon />
     </div>
   );
