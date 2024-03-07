@@ -32,7 +32,7 @@ const Form1 = () => {
         einheitKg: "Ağırlık (Kg)",
         einheitCm: "Boy (Cm)",
         einheitJahre: "Yaş",
-        bosAlanUyarisi: "Lütfen tüm alanları doldurunuz", 
+        bosAlanUyarisi: "Lütfen tüm alanları doldurunuz",
     };
 
     const calculateCaloricNeed = () => {

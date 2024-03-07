@@ -5,7 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Button from '@mui/material/Button';
 import './forms.css';
-import '../i18n'; // i18n konfigürasyon dosyasını import ediyoruz.
+import '../i18n'; 
 import { useTranslation } from 'react-i18next';
 
 const AllergyForm = () => {
@@ -14,7 +14,7 @@ const AllergyForm = () => {
   const [results, setResults] = useState("");
   const [responses, setResponses] = useState({});
 
-  // Dil bağımsız sorular ve etiketler için çevirileri kullan
+  
   const questions = [
     { id: "cradleCap", text: t("CRADLE_CAP") },
     { id: "eczema", text: t("ECZEMA") },
