@@ -6,8 +6,12 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
+import '../i18n';
+import { useTranslation } from 'react-i18next';
 
 const Form1 = () => {
+    const { t } = useTranslation();
+
     const [weight, setWeight] = useState('');
     const [height, setHeight] = useState('');
     const [age, setAge] = useState('');
@@ -61,17 +65,17 @@ const Form1 = () => {
                 <tbody>
                     <tr>
                         <td>
-                            <TextField  size="small" variant="outlined"  label={texts.einheitKg} id="outlined-basic" type="text" value={weight} onChange={(e) => setWeight(e.target.value)} />
+                            <TextField  size="small" variant="outlined"  label={t('einheitKg')}  id="outlined-basic" type="text" value={weight} onChange={(e) => setWeight(e.target.value)} />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <TextField className='customMargin' size="small" variant="outlined"  label={texts.einheitCm} id="outlined-basic" type="text" value={height} onChange={(e) => setHeight(e.target.value)} />
+                            <TextField className='customMargin' size="small" variant="outlined"  label={t('einheitCm')} id="outlined-basic" type="text" value={height} onChange={(e) => setHeight(e.target.value)} />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <TextField className='customMargin' size="small" variant="outlined"  label={texts.einheitJahre} id="outlined-basic" type="text" value={age} onChange={(e) => setAge(e.target.value)} />
+                            <TextField className='customMargin' size="small" variant="outlined"  label={t('einheitJahre')} id="outlined-basic" type="text" value={age} onChange={(e) => setAge(e.target.value)} />
                         </td>
                     </tr>
                     <tr>
@@ -83,8 +87,8 @@ const Form1 = () => {
                                     value={gender}
                                     onChange={(e) => setGender(e.target.value)}
                                 >
-                                    <FormControlLabel value="m" control={<Radio />} label={texts.maennlich} />
-                                    <FormControlLabel value="w" control={<Radio />} label={texts.weiblich} />
+                                    <FormControlLabel value="m" control={<Radio />} label={t('maennlich')} />
+                                    <FormControlLabel value="w" control={<Radio />} label={t('weiblich')} />
                                 </RadioGroup>
                             </FormControl>
                         </td>
@@ -94,8 +98,8 @@ const Form1 = () => {
                     </tr>
                     <tr>
                         <td colSpan="2" style={{ textAlign: 'left' }}>
-                            <Button className='customMargin' size="small" variant="Contained" onClick={calculateCaloricNeed}>{texts.berechnen}</Button>
-                            <Button className='customMargin' size="small" variant="Contained" color="secondary" onClick={clearForm}>{texts.temizle}</Button>
+                            <Button className='customMargin' size="small" variant="Contained" onClick={calculateCaloricNeed}>{t('berechnen')}</Button>
+                            <Button className='customMargin' size="small" variant="Contained" color="secondary" onClick={clearForm}>{t('temizle')}</Button>
                         </td>
                     </tr>
                 </tbody>

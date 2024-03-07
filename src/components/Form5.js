@@ -6,36 +6,21 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
+import { useTranslation } from 'react-i18next'; // Import useTranslation hook
 
 const WaistHipRatioCalculator = () => {
+  const { t } = useTranslation(); // useTranslation hook to get t function
   const [waist, setWaist] = useState('');
   const [hip, setHip] = useState('');
   const [gender, setGender] = useState('');
   const [result, setResult] = useState('');
-  const [language, setLanguage] = useState('tr');
-
-  const whrLabels = {
-    tr: {
-      waist: 'Bel Çevresi (Cm)',
-      hip: 'Kalça Çevresi (Cm)',
-      gender: 'Cinsiyetinizi seçin:',
-      calculate: 'Hesapla',
-      clear: 'Temizle',
-      result: 'Bel-Kalça Oranınız:',
-      male: 'Erkek',
-      female: 'Kadın',
-      normal: 'Normal ağırlık',
-      overweight: 'Fazla Kilolu',
-      obesity: 'Obez',
-    },
-  };
 
   const calculateWHR = () => {
     const waistValue = parseFloat(waist);
     const hipValue = parseFloat(hip);
 
     if (!waistValue || !hipValue || !gender) {
-      alert('Lütfen detaylarınızı girin.');
+      alert(t('bosAlanUyarisi')); // Use t function for translations
       return;
     }
 
@@ -43,16 +28,16 @@ const WaistHipRatioCalculator = () => {
     let category = '';
 
     if (gender === 'm') {
-      if (ratio < 0.9) category = whrLabels[language].normal;
-      else if (ratio < 1) category = whrLabels[language].overweight;
-      else category = whrLabels[language].obesity;
+      if (ratio < 0.9) category = t('normal');
+      else if (ratio < 1) category = t('overweight');
+      else category = t('obesity');
     } else if (gender === 'w') {
-      if (ratio < 0.8) category = whrLabels[language].normal;
-      else if (ratio < 0.85) category = whrLabels[language].overweight;
-      else category = whrLabels[language].obesity;
+      if (ratio < 0.8) category = t('normal');
+      else if (ratio < 0.85) category = t('overweight');
+      else category = t('obesity');
     }
 
-    setResult(`${ratio} ${category}`);
+    setResult(`${t('result')} ${ratio} (${category})`);
   };
 
   const clearForm = () => {
@@ -67,7 +52,7 @@ const WaistHipRatioCalculator = () => {
       <div>
         <TextField
           size='small' 
-          label={whrLabels[language].waist}
+          label={t('waist')}
           variant="outlined"
           value={waist}
           onChange={(e) => setWaist(e.target.value)}
@@ -75,9 +60,10 @@ const WaistHipRatioCalculator = () => {
       </div>
 
       <div>
-        <TextField className='customMargin'
+        <TextField
+          className='customMargin'
           size='small'
-          label={whrLabels[language].hip}
+          label={t('hip')}
           variant="outlined"
           value={hip}
           onChange={(e) => setHip(e.target.value)}
@@ -88,7 +74,6 @@ const WaistHipRatioCalculator = () => {
         <FormControl component="fieldset">
           <RadioGroup
             row
-            aria-label="gender"
             name="gender"
             value={gender}
             onChange={(e) => setGender(e.target.value)}
@@ -96,12 +81,12 @@ const WaistHipRatioCalculator = () => {
             <FormControlLabel
               value="m"
               control={<Radio />}
-              label={whrLabels[language].male}
+              label={t('male')}
             />
             <FormControlLabel
               value="w"
               control={<Radio />}
-              label={whrLabels[language].female}
+              label={t('female')}
             />
           </RadioGroup>
         </FormControl>
@@ -109,10 +94,10 @@ const WaistHipRatioCalculator = () => {
 
       <div className='customMargin'>
         <Button variant="Contained" onClick={calculateWHR}>
-          {whrLabels[language].calculate}
+          {t('calculate')}
         </Button>
         <Button variant="Contained" onClick={clearForm} style={{ marginLeft: '10px' }}>
-          {whrLabels[language].clear}
+          {t('clear')}
         </Button>
       </div>
 

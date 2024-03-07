@@ -1,41 +1,22 @@
 import React, { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import './forms.css';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { useTranslation } from 'react-i18next'; // i18next'ten useTranslation hook'unu import edin
 
 const Form4 = () => {
+  const { t } = useTranslation(); // useTranslation hook'unu kullanarak çeviri fonksiyonunu alın
   const [formData, setFormData] = useState({
     alter: '',
     ruhepuls: '',
     sportlich: '',
     trainingspulsergebnis: '',
   });
-
-  const formTexts = {
-    tr: {
-      age: "Yaş",
-      restingPulse: "Dinlenme Nabzı",
-      activityLevel: "Sizi en iyi hangisi tanımlar?",
-      activityOptions: [
-        "Yıllardır çok hareketsiz",
-        "Ortalama, eğitimsiz",
-        "Fitness odaklı yaşlılar",
-        "Ara sıra, yapılandırılmamış fiziksel aktivite",
-        "Haftada en az 2 kez aktif",
-        "Haftada en az 4 kez aktif (sporcular)",
-        "Yüksek performanslı, profesyonel sporcular",
-      ],
-      calculate: "Hesapla",
-      clear: "Temizle", 
-      optimalPulse: "Optimal antrenman nabzınız yaklaşık:",
-    },
-  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -51,7 +32,7 @@ const Form4 = () => {
     const { alter, ruhepuls, sportlich } = formData;
 
     if (!isNumber(alter) || !isNumber(ruhepuls) || !isNumber(sportlich)) {
-      alert("Lütfen Girdiğiniz Değerleri Kontrol Edin.");
+      alert(t("bosAlanUyarisi")); // Çeviri anahtarını kullanın
       return;
     }
 
@@ -80,27 +61,25 @@ const Form4 = () => {
     return !isNaN(parseFloat(value)) && isFinite(value);
   };
 
-  const texts = formTexts['tr'];
-
   return (
     <div>
-      <form name="trainingspulsberechnen" className="csc-mailform">
+      <form name="trainingspulsberechnen">
         <Stack spacing={2}>
-          <TextField size='small' name="alter" value={formData.alter} onChange={handleChange} label={texts.age} variant="outlined" />
-          <TextField size='small' name="ruhepuls" value={formData.ruhepuls} onChange={handleChange} label={texts.restingPulse} variant="outlined" />
+          <TextField size='small' name="alter" value={formData.alter} onChange={handleChange} label={t("AGE")} variant="outlined" />
+          <TextField size='small' name="ruhepuls" value={formData.ruhepuls} onChange={handleChange} label={t("RESTING_PULSE")} variant="outlined" />
           <FormControl component="fieldset">
-            <FormLabel component="legend">{texts.activityLevel}</FormLabel>
+            <FormLabel component="legend">{t("ACTIVITY_LEVEL")}</FormLabel>
             <RadioGroup row name="sportlich" value={formData.sportlich} onChange={handleRadioChange}>
-              {texts.activityOptions.map((option, index) => (
+              {t("ACTIVITY_OPTIONS", { returnObjects: true }).map((option, index) => (
                 <FormControlLabel key={index} value={(index + 1) * 0.1} control={<Radio />} label={option} />
               ))}
             </RadioGroup>
           </FormControl>
-          <Button type="submit" variant="Contained" onClick={doSomething}>{texts.calculate}</Button>
-          <Button variant="Contained" onClick={handleReset}>{texts.clear}</Button> {}
+          <Button type="submit" variant="Contained" onClick={doSomething}>{t("CALCULATE")}</Button>
+          <Button variant="Contained" onClick={handleReset}>{t("CLEAR")}</Button>
           {formData.trainingspulsergebnis && (
             <div style={{ fontWeight: 'bold' }}>
-              {texts.optimalPulse} {formData.trainingspulsergebnis}<br />&nbsp;
+              {t("OPTIMAL_TRAINING_PULSE")} {formData.trainingspulsergebnis}
             </div>
           )}
         </Stack>
