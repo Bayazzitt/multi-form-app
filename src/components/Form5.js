@@ -6,10 +6,10 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import { useTranslation } from 'react-i18next'; // Import useTranslation hook
+import { useTranslation } from 'react-i18next'; 
 
 const WaistHipRatioCalculator = () => {
-  const { t } = useTranslation(); // useTranslation hook to get t function
+  const { t } = useTranslation(); 
   const [waist, setWaist] = useState('');
   const [hip, setHip] = useState('');
   const [gender, setGender] = useState('');
@@ -20,7 +20,7 @@ const WaistHipRatioCalculator = () => {
     const hipValue = parseFloat(hip);
 
     if (!waistValue || !hipValue || !gender) {
-      alert(t('bosAlanUyarisi')); // Use t function for translations
+      alert(t('bosAlanUyarisi')); 
       return;
     }
 

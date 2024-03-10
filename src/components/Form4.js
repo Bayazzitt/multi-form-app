@@ -7,10 +7,10 @@ import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { useTranslation } from 'react-i18next'; // i18next'ten useTranslation hook'unu import edin
+import { useTranslation } from 'react-i18next'; 
 
 const Form4 = () => {
-  const { t } = useTranslation(); // useTranslation hook'unu kullanarak çeviri fonksiyonunu alın
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     alter: '',
     ruhepuls: '',

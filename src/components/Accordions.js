@@ -19,13 +19,13 @@ export default function AccordionExpandIcon() {
 
   const handleChangeLanguage = (lang) => {
     i18n.changeLanguage(lang);
-    setSelectedLang(lang); // Seçili dili güncelle
+    setSelectedLang(lang); 
   };
 
-  // Seçili dil butonunu görsel olarak farklı göstermek için stil
+  
   const selectedStyle = {
-    backgroundColor: '#1976d2', // Seçili butonun arka plan rengi
-    color: 'white', // Seçili butonun yazı rengi
+    backgroundColor: '#1976d2', 
+    color: 'white', 
   };
 
   return (
@@ -34,7 +34,7 @@ export default function AccordionExpandIcon() {
         <Button 
           size="small" 
           variant="Contained" 
-          style={selectedLang === 'tr' ? selectedStyle : {}} // Seçili dil 'tr' ise özel stil uygula
+          style={selectedLang === 'tr' ? selectedStyle : {}} 
           onClick={() => handleChangeLanguage('tr')}
         >
           TR
