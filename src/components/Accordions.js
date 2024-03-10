@@ -62,7 +62,7 @@ export default function AccordionExpandIcon() {
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          <Typography className="typographyTitle">{t('KALORI_HESAPLAMA')}</Typography>
+          <Typography className="accordionTitle">{t('KALORI_HESAPLAMA')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -76,7 +76,7 @@ export default function AccordionExpandIcon() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          <Typography className="typographyTitle">{t('ALERJI_HESAPLAMA')}</Typography>
+          <Typography className="accordionTitle">{t('ALERJI_HESAPLAMA')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -90,7 +90,7 @@ export default function AccordionExpandIcon() {
           aria-controls="panel3-content"
           id="panel3-header"
         >
-          <Typography className="typographyTitle">{t('BMI_HESAPLAMA')}</Typography>
+          <Typography className="accordionTitle">{t('BMI_HESAPLAMA')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -104,7 +104,7 @@ export default function AccordionExpandIcon() {
           aria-controls="panel4-content"
           id="panel4-header"
         >
-          <Typography className="typographyTitle">{t('ANTREMAN_NABZI_HESAPLAMA')}</Typography>
+          <Typography className="accordionTitle">{t('ANTREMAN_NABZI_HESAPLAMA')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -118,7 +118,7 @@ export default function AccordionExpandIcon() {
           aria-controls="panel5-content"
           id="panel5-header"
         >
-          <Typography className="typographyTitle">{t('BEL_KALÇA_ORANI_HESAPLAMA')}</Typography>
+          <Typography className="accordionTitle">{t('BEL_KALÇA_ORANI_HESAPLAMA')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>

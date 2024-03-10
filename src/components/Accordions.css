@@ -5,6 +5,10 @@
     justify-content: center!important;
     align-items: center!important;
   }
+
+  .accordionTitle {
+    font-weight: bold !important;
+  }
   
   .accordion {
     background-color: #e0e8eb !important;
