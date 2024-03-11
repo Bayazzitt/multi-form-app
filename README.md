@@ -25,7 +25,7 @@ Bu form yapısında, kullanıcıların cinsiyet, ağırlık, boy ve yaş ve benz
 ## Kullanılan Teknolojiler
 
 * React
-* Material-UI: Form elemanları ve düğmeler için kullanılan UI kitaplığı.
+* Material-UI: Form elemanları ve butonlar için kullanılan UI kütüphanesi.
 * i18next: Uygulamanın çok dilli desteği için.
 
 
