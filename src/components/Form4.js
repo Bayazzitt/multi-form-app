@@ -32,7 +32,7 @@ const Form4 = () => {
     const { alter, ruhepuls, sportlich } = formData;
 
     if (!isNumber(alter) || !isNumber(ruhepuls) || !isNumber(sportlich)) {
-      alert(t("bosAlanUyarisi")); // Çeviri anahtarını kullanın
+      alert(t("bosAlanUyarisi")); 
       return;
     }
 
@@ -64,25 +64,27 @@ const Form4 = () => {
   return (
     <div>
       <form name="trainingspulsberechnen">
-        <Stack spacing={2}>
+        <div>
           <TextField size='small' name="alter" value={formData.alter} onChange={handleChange} label={t("AGE")} variant="outlined" />
-          <TextField size='small' name="ruhepuls" value={formData.ruhepuls} onChange={handleChange} label={t("RESTING_PULSE")} variant="outlined" />
-          <FormControl component="fieldset">
+        </div>
+        <div>
+          <TextField className='customMargin' size='small' name="ruhepuls" value={formData.ruhepuls} onChange={handleChange} label={t("RESTING_PULSE")} variant="outlined" />
+        </div>
+          <FormControl className='customMargin' component="fieldset">
             <FormLabel component="legend">{t("ACTIVITY_LEVEL")}</FormLabel>
-            <RadioGroup row name="sportlich" value={formData.sportlich} onChange={handleRadioChange}>
+            <RadioGroup className='customMargin' row name="sportlich" value={formData.sportlich} onChange={handleRadioChange}>
               {t("ACTIVITY_OPTIONS", { returnObjects: true }).map((option, index) => (
                 <FormControlLabel key={index} value={(index + 1) * 0.1} control={<Radio />} label={option} />
               ))}
             </RadioGroup>
           </FormControl>
-          <Button type="submit" variant="Contained" onClick={doSomething}>{t("CALCULATE")}</Button>
-          <Button variant="Contained" onClick={handleReset}>{t("CLEAR")}</Button>
+          <Button className='customMargin' type="submit" variant="Contained" onClick={doSomething}>{t("CALCULATE")}</Button>
+          <Button className='customMargin' variant="Contained" onClick={handleReset}>{t("CLEAR")}</Button>
           {formData.trainingspulsergebnis && (
-            <div style={{ fontWeight: 'bold' }}>
+            <div className='customMargin' style={{ fontWeight: 'bold' }}>
               {t("OPTIMAL_TRAINING_PULSE")} {formData.trainingspulsergebnis}
             </div>
           )}
-        </Stack>
       </form>
     </div>
   );
