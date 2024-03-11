@@ -83,7 +83,7 @@ const resources = {
     translation: {
       "KALORI_HESAPLAMA": "KALORİ HESAPLAMA",
       "ALERJI_HESAPLAMA": "ALERJİ HESAPLAMA",
-      "BMI_HESAPLAMA": "BMI HESAPLAMA",
+      "BMI_HESAPLAMA": "VKI HESAPLAMA",
       "ANTREMAN_NABZI_HESAPLAMA": "ANTREMAN NABZI HESAPLAMA",
       "BEL_KALÇA_ORANI_HESAPLAMA": "BEL KALÇA ORANI HESAPLAMA",
       "gewicht": "Ağırlık (Kg olarak):",
@@ -124,7 +124,7 @@ const resources = {
       "normal": "Normal",
       "overweight": "Fazla Kilolu",
       "obesity": "Obez",
-      "calculateBMI": "BMI Hesapla",
+      "calculateBMI": "VKI Hesapla",
       "clearFields": "Alanları Temizle",
       "AGE": "Yaş",
       "RESTING_PULSE": "Dinlenme Nabzı",
