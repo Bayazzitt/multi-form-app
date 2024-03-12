@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function AccordionExpandIcon() {
   const { t, i18n } = useTranslation();
-  const [selectedLang, setSelectedLang] = useState(i18n.language); // İlk başlangıç dilini i18n'nin mevcut dilinden al
+  const [selectedLang, setSelectedLang] = useState(i18n.language); 
 
   const handleChangeLanguage = (lang) => {
     i18n.changeLanguage(lang);

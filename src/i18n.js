@@ -235,7 +235,7 @@ i18n
   .use(LanguageDetector) 
   .init({
     resources,
-    fallbackLng: 'tr', // Varsayılan dil
+    fallbackLng: 'tr',
     interpolation: {
       escapeValue: false,
     }
