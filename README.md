@@ -6,16 +6,6 @@ Bu form yapısında, kullanıcıların cinsiyet, ağırlık, boy ve yaş ve benz
 ![alt text](/src/screenshot/ekran2.jpg)
 
 
-## Kurulum
-```
-git clone [repo-adresiniz]
-```
-```
-npm install`
-```
-```
-`npm start`
-```
 
 ## Özellikler
 
@@ -32,3 +22,14 @@ npm install`
 * React
 * Material-UI: Form elemanları ve butonlar için kullanılan UI kütüphanesi.
 * i18next: Uygulamanın çok dilli desteği için.
+
+## Kurulum
+```
+git clone [repo-adresiniz]
+```
+```
+npm install`
+```
+```
+`npm start`
+```
