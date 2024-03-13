@@ -29,5 +29,14 @@ Bu form yapısında, kullanıcıların cinsiyet, ağırlık, boy ve yaş ve benz
 `npm install`
 ```
 ```
+`npm install @mui/material @emotion/react @emotion/styled`
+```
+```
+`npm install @mui/material @mui/styled-engine-sc styled-components`
+```
+```
+`npm install i18next --save`
+```
+```
 `npm start`
 ```
