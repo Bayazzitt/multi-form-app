@@ -24,11 +24,9 @@ Bu form yapısında, kullanıcıların cinsiyet, ağırlık, boy ve yaş ve benz
 * i18next: Uygulamanın çok dilli desteği için.
 
 ## Kurulum
+
 ```
-git clone [repo-adresiniz]
-```
-```
-npm install`
+`npm install`
 ```
 ```
 `npm start`
